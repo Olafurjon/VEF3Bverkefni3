@@ -1,0 +1,77 @@
+Verkefni 3a - Grunnatriði í WebGL 15%
+
+Útskýrðu stuttlega eftirfarandi hugtök og hvað þau gera:
+1.	WebGL – Gerir þér kleyft að vinna með þrívídd í þeim vöfrum sem styðja það, þ.e.a.s nota Javascript API eða þá sett af aðgerðum sem til að mynda þrívídd eftir því hvernig þú setur kóðann upp. WebGL opnar á það að vafrinn geti nýtt skjákortið eða skjákjarnan (GPU-ip) til að sjá um að vinna úr Javascript kóðanum og OpenGL kóðanum til að vinna úr og birta þrívíddina. 
+
+2.	GPU -  Graphics Processing Unit, er sér eining eða rás sem sér einblínir meira á reikna út og sýna myndir á skjánum, því öflugari GPU sem þú ert með því meiri og flóknari þrívíddaraðgerðir og það getur skilað þér þá betri upplifun í þrívíddarvinnslu og í þungri tölvuleikjaspilun þar sem þar er jú mikið að þrívíddarútreikningum og mikið af þríhyrningum til að vinna úr. Í dag er að finna GPU í nánast öllum helstum raftækjum í dag annahvort í formi skjákorts sem er þá sín eigin eining í tækinu eða í formi skjákjarna sem er þá annahvort hluti af örgjörvanum eða innbyggt í móðurborðið.
+
+3.	Rasterizing – Er ferlið þegar mynd sem er útskýrð í eins og t.d. vigrahnitum og formum er birt síðan í pixlum, eins og t.d. þegar þú ert að birta 3d módel eða jafnel bara 2D sprite á skjáinn þinn. Þegar þú ert með 3D model og ert að hreyfa það í rauntíma þá er það að ganga í gegnum Rasterization ferlið ítrekað og því betri vélbúnað þú ert með þá eru meiri líkur að þú náir allavega að keyra það á 30 römmum á sek sem er svona almennt ”hraðinn” sem fólk er sammá umm að sé lágmarkið til að fá góða upplifun.
+
+4.	GLSL – er styttinging á OpenGL Shading Language og er það forritun sem byggist á C forritunartungumálinu og er það forritun sem gefur þér meiri stjórnun á skjákortinu og hvernig er átt við ákveðna hluti í því ferli sem snýst um að birta 3D eða 2D myndir á skjánum. GLSL byggist á því að þú skrifar sett af skipunum eða strengjum sem þú svo nýtir með öðrum forritunarmálum eða forritum sem nýta OpenGL eins og t.d. Javascript.
+
+5.	Vertex – Vertex er þegar að form eða línur koma saman og það myndast hornpunktar eða horn, hornpunkturinn eða Vertex-ið og þegar er verið að mynda form og skila í píxlum þá eru það upplýsingarnar um hornpunktana sem aðstoða við að birta myndina rétt og einnig hvort eigi að birta hvaða lit þar á milli og þess háttar.
+
+6.	Primative – án þess að hafa eitthvað 100% samhengi með þessu geri ráð fyrir að þú sért að sækjast eftir Primitive formum? En Primitive í tölvugrafík er notað í ýmsu eins og eitthvað sem forritin eða vélbúnaðurinn á auðvelt með að keyra eða eitthvað sem tekur lítið pláss, síðan í formum eru náttúrulega Primitive formim eins og fernyngur, kýla, sívalningur, pýramidi og þarna kleinuhringurinn(torus), og náttúrulega það sem er svona hvað mest frumstætt er náttúrulega bara punktur og lína. Þríhyrnar eru líka yfirleitt notaðir þegar er verið að mynda þríhyrning þar sem þeir eru svo frumstæðir og þú getur myndað allt með honum og þarft ekki að geyma endalausar upplýsingar í minninu um aukapunkta þar sem þú þarft yfirleitt bara að bæta við einum punkti fyrir hvern aukaþríhyrning sem skilar þá hraðari vinnslu.
+
+7.	Fragment – Gögnin sem eru nauðsynleg sem fara í vinnsluminnið til að segja stökum píxel hvernig eigi að teikna frumstæðu formin, t.d. eins og hvar hann er staðsettur með vigrana, hvernig er áferðin og liturinn, hver er dýptin ásamt fleiru eða færru. Einnig er það skoðað í fragmentinu t.d. ef það á að hafa fyrir því að mynd þetta eða ekki. T.d. ef að þetta á að koma tilstaðar þar sem það er eitthvað núþegar fyrir og ef þetta er hvort sem er ekki að fara sjást þá er þessu bara hent. 
+
+8.	Pixel – er stytting og samsetnign á ensku orðunum picture element og er það einn af t.d. rúmum 2.milljónum píxla sem eru að mynd þetta textaskjal á skjánum hjá mér. 1pixel er aðeins brot af brot af brot af broti af heildarmynd sem er birt á skjá og eru það t.d. hlutirnir sem var farið hér yfir að ofan sem reikna út og mynda ásamt því að koma tilskila hvernig hver og einn pixel á að haga sér um eins og liti og þess háttar til að birta modelið eða heildarmyndina.
+
+9.	Clip Space – er það svæði sem að ”myndavélin okkar” eða sá hlutur t.d. skjár eða rammi eða hvað sem það er er að sjá. T.d. ef við tökum myndavél þá allt sem að ég sé í lensunni á myndavélinni eða þá allt sem að myndavélin mun taka mynd af þegar ég ýti á takkann það er Clip Spaceið mitt allt sem er ekki í þeim ramma það einfaldlega mun ekki vera tekið mynd af og þar að leiðandi mun ég ekki eiga mynd af því, og þegar ég prenta út myndina þá mun bara prentast út dótið sem ég tók mynd af og sem betur fer er ég ekki að eyða bleki í allt sem ég tók ekki mynd af. Sama með grafíkína allt sem er innan ”myndavélarinnar okkar” það erum við að eyða minni og reikningin í að framkvæma og sýna, en ef það er ekki innan þess ramma þá hættum við að spá í því til að nýta orkuna í annað. 
+
+10.	View Frustum – Er í rauninni hvaðan við fáum að sjá úr myndavélinni, þetta er í laginu ein og pýramýdi sem er snúið að okkur og klippt af toppurinn, það gefur okkur þá betri sýn um hvað er lengra frá okkur og hvað er styttra. 
+
+11.	Z-Buffering – er eitthvað sem vélbúnaðurinn sér yfirleitt út um að reikna þó að hugbúnaður getur líka gert það en þetta er það sem reiknar út dýptina eða hversu nálægt og langt frá hluturinn eða hlutirnir eru, t.d. ef þú ert með hlut og horfir á þetta í hinu týpíska þrívíddarkerfi og þú ert með einn hlut sem er í Vector3(10,10,0) og hlut B sem er í Vector3(5,5,10) þá mun hlutur B vera nær okkur og virka þannig, við sæjum samt ennþá hlut A nema hann væri bara lengra frá okkur. Síðan er til eitthvað sem heitir Z-Culling eða það ferli sem að hugsar þannig að ef við sjáum ekki hlutinn þá þurfum við ekki að reikna hann. Þannig ef þú ert með einn hlut staðsettann á Vector3(0,0,10) og annan sem er jafnstór og er staðsettur á Vector3(0,0,5) þá er hann í raun og veru fyrir aftan fyrri hlutinn og þá erum við ekkert að spá í honum, nema þá að vísu við myndum færa View Frustumið okkar til hliðar eða að ofan.
+
+12.	Right-hand Coordinate system (RHS) – er sjálfgefna hnitakerfið í t.d. OpenGL  og á  það við þegar Y er + upp og X-ásinn plús til hægri og Z er neikvæð eða í mínus áfram og plús tilbaka eða þa´því meira sem hluturinn er í mínus því lengra er hann frá okkur, meðan LHS eða left-handed coordinate system er svipað nema þá er haldið því fram að þegar Z er í plús þá hluturinn lengra frá okkur.
+
+
+Af hverju eru 3D objectar búnir til útfrá samsettum þríhyrningum í 3D Grafík?
+Allir þrívíddar hlutir sem við sjáum á tölvuskjá eru gerðir úr litlum frumstæðum formum eins og kössum, þríhyrningum trapezu og þess háttar frekar en flóknari formum, ástæðan fyrir því að þríhyrningarnir eru svona hentugir er því að þú getur gert hvaða form sem er úr þrýhyrning en þú getur ekki gert þríhyrning úr hvaða formi sem er, einnig þar sem þú getur myndar alveg slétt yfirborð úr mörgum litlum þríhyrningum en getur ekki fullyrt það úr öðrum formum, Það var gefið út skjákort af Nvidia sem er einn af stærstu (ef ekki stærsti) skjákortaframleiðandi í dag sem notaði bara fjórhyrninga í útreikninga fyrir 3D objecta og kom það ekki nógu vel út, það virkaði alveg bara var ekki að slá gegn. En þar sem að þú getur í raun gert hvað sem er úr þríhyrningum og það er ódýrt fyrir vélbúnaðinn að geyma og reikna punktanna á þeim og bæta við er eflaust ástæðan fyrir að þeir eru búnir til frá samsettum þríhyrningum.
+
+
+
+
+Útskýrðu ítarlega og tæknilega (en án kóða) með eigin orðum ásmt skýringamyndum hvernig rendering pipeline virkar í WebGL .
+Pipeline-ið fær upplýsingar um hvers konar gögn hornahnit þetta eru, eru í raun þurufm við að skrifa lítið forrit svona hvernig þetta á að haga sér, við þurfum að taka fram hvernig punktarnir eru sem á að tengja saman og ef við erum að vinna með þrívíddina þurfum við að taka fram hvaða punktar eru hvar og hvernig skal raða þessu síðan upp og þær upplýsingar fara gjarnan í fylki sem sem heldur þá utan um hvar puntktarnir eru og hvar punktarnir tengjast hverjum til að mynda form.
+Ef það eru skilgreind meri hlutir eins og litir eða áferðir eru staðsetningarnar á því einnig komið í fylki með viðeigandi upplýsingum hvar hvert fer á hvaða horn og þess háttar.
+Þegar þessar upplýsingar eru komnar fyrir þá er farið að vinna í því hvernig við sjáum þær eða þá myndavélinn og view frustrumið er tekið til hugsunar og það sem á við miðað við staðsetningu og Z-buffer og annað er plantað fyrir framan myndavélina (ekkert er samt birt ennþá þetta er ennþá bara reikningur) og síðan er losað burt þá hluti (ef þeir eru) sem eru ekki í Clip Spaceinu.
+Síðan eru hlutirnir brotnir niður í margar litlar línur, eða punkta eða þríhyrninga eftir því sem að annahvort notandinn tók fram eða hentar best. Face Culling er yfirleitt gert(Hægt er þó að sleppa því en... ) þá eru aðeins þeir hlutir sem snúa í áttina að notendanum eða þeim sem sér hlutina reiknaðir út, annað er bara hent frá.
+Þeir þríhyrningar eða önnur ”primitives” sem komast á Rasterization stigið eru síðan reiknuð ít í þeirri röð sem það fékk þau og þá er það er það komið í hendurnar á pixlunum að fá að vita hvaða lit þeir eiga að sýna hvar þetta er staðsett á skjánum og þess háttar og ef að dýptin á þessu er meiri en píxelinn sem er tilstaðar núna er þessu hent og þannig. Og ef að allt er í order þá sýnist þetta eðlilega.
+
+
+
+
+
+
+
+
+
+Transform (translation, rotation og scale). Komdu með sýnidæmi með vector/vigri) í cartesian hnitakerfi (x,y,z) fyrir:
+
+a)  translation myndi vera í raun staðsetninginn á vigrinum, vigur með þremur hnitum eins og V = {1,2,3} þá myndum við fara 1 á x ásnum og  y ásinn færum við 2 upp og þá myndi þetta lýta svona út eins og við þekkjum úr týpíska hnitakerfinu sem við sjáum nú oftast.
+
+
+			
+
+
+
+nema frá þessu sjónarhorni sjáum við ekki almennilega Z-ásinn svo við þurfum aðeins að horfa á þetta öðruvísi
+þá væri punkturinn þarna c.a
+ 
+Og ef við mixum nokkrum vigrum saman og tengjum þá saman þá kæmi það út c.a svona
+
+ 
+
+
+
+
+
+b)	rotation	
+Myndin hér að neðan eru sömu vigrar nema settir í +90°þá er hægt að sjá hvernig ásarnir breytast með
+ 
+
+c)	scale	
+
+
+
