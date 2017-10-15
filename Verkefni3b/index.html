@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>Verkefni 3b</title>
+     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+  </head>
+  <body>
+  <script src="JS/three.js"></script>
+ <div id="Manipulation" >
+  <div id="transformer">
+      <label> Transform </label> 
+      <label> X </label><input type="text" Width="20px">
+      
+      <label> Y </label><input type="text" Width="20px">
+
+      <label> Z </label><input type="text" Width="20px">
+     
+
+  </div>
+  <div id="transformrange" class="rangediv">
+    <input id="transformx" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(0)" >
+    <input id="transformy" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(1)" >
+    <input id="transformz" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(2)" >
+  </div>
+    <div id="rotator">
+      <label> Rotation </label> 
+      <label> X </label><input type="text" Width="20px">
+      <label> Y </label><input type="text" Width="20px">
+      <label> Z </label><input type="text" Width="20px" >
+  </div>
+    <div id="rotatorrange" class="rangediv">
+    <input id="transformx" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(3)" >
+    <input id="transformy" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(4)" >
+    <input id="transformz" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(5)" >
+  </div>
+    <div id="camera">
+      <label> Camera </label> 
+      <label> X </label><input id="camx" type="text" Width="20px">
+      <label> Y </label><input id="camy" type="text" Width="20px">
+      <label> Z </label><input id="camz" type="text" Width="20px" >
+      <label> FOV </label><input id="camfov" type="text" Width="20px" >
+  </div>
+    <div id="camerarange" class="rangediv">
+    <input id="transformx" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(6)" >
+    <input id="transformy" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(7)" >
+    <input id="transformz" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(8)" >
+    <input id="transformz" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(9)" >
+  </div>
+   <div id="camerarot">
+      <label> Camera Rot </label> 
+      <label> X </label><input id="camx" type="text" Width="20px">
+      <label> Y </label><input id="camy" type="text" Width="20px">
+      <label> Z </label><input id="camz" type="text" Width="20px" >
+  </div>
+    <div id="camerarange" class="rangediv">
+    <input id="transformx" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(10)" >
+    <input id="transformy" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc(11)" >
+    <input id="transformz" class="range" type="range" min="-100" max="100" value="0" step="10" oninput="sliderfunc()" >
+  </div>
+    <div id="lightinteschange">
+    <label>Styrkur ljóssins uppi  </label><input id="lightintensity"  type="text" value="0.5" onfocusout="changeintensity()" >
+     <label>Styrkur ljóssins niðri  </label><input id="lightintensity2"  type="text" value="0.5"  onfocusout="changeintensity2()" >
+  </div>
+      <div id="scaler">
+      </div>
+      <div id="howmany">
+      <label>Fjöldi Objecta </label><Input type="Text" id="number" value="1">
+      </div>
+    <div id="geometry">
+    <label>Breyttu Um Geometry</label>
+    <select id="geomSelector" onchange="changeGeom()">
+      <option value="0">CylinderGeometry</option>
+      <option value="1">BoxGeometry</option>
+      <option value="2">SphereGeometry</option>
+      <option value="3">CircleGeometry</option>
+      <option value="4">DodecahedronGeometry</option>
+      <option value="5">ConeGeometry</option>
+      <option value="6">IcosahedronGeometry</option>
+      <option value="7">LatheGeometry</option>
+      <option value="8">RingGeometry</option>
+      <option value="9">PlaneGeometry</option>
+      <option value="10">SphereGeometry</option>
+      <option value="11">TorusGeometry</option>
+      <option value="12">TubeGeometry</option>
+    </select>
+    </div>
+    <div id="material">
+    <label>Breyttu Um Material</label>
+    <select id="matSelector" onchange="changeMat()">
+      <option value="0">MeshNormalMaterial</option>
+      <option value="1">MeshBasicMaterial</option>
+      <option value="2">MeshPhongMaterial</option>
+      <option value="3">MeshDepthMaterial</option>
+      <option value="4">MeshLambertMaterial</option>
+      <option value="5">MeshPhysicalMaterial</option>
+      <option value="6">MeshStandardMaterial</option>
+      <option value="7">MeshToonMaterial</option>
+
+    </select>
+    </div>
+
+
+</div >
+<div id="Main">
+    <script src="JS/main.js">    </script>
+  </div>
+  
+  <div id="changeForm">
+    <div id="Button">
+    <p id="pause">toggle-a snúning</p>
+    </div>
+    <div id="Button">
+    <p id="wireframe">wireframe</p>
+    </div>
+    <div id="Button">
+    <p id="randomsize">Randomize Size</p>
+    </div>
+    <div id="Button">
+    <p id="selectAll">Velja alla obj</p>
+    </div>
+      </div>
+    <div class="row" >
+    <div id="Button">
+    <p id="lights">Toggle-a Ljós</p>
+    </div>
+    <div id="Button">
+    <p id="lookAt">Fókusa á hlut</p>
+    </div>
+        <div class="row" >
+    <div id="Button">
+    <p id="iceland">Ísland</p>
+    </div>
+    <div id="Button">
+    <p id="icelandwire">Ísland wireframe </p>
+    </div>
+    </div>
+
+
+
+
+  </div>
+
+  </body>
+</html>

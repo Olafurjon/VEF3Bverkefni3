@@ -1,0 +1,19 @@
+#gameBoard
+{
+	margin-left:25%;
+	height: 750px;
+	width: 750px;
+}
+
+#myCanvas
+{
+	border: 1px solid red;
+	margin-top:10%;
+}
+#scoreboard
+{
+	margin-top: 5%;
+	margin-left: 50%;
+	font-size: 32px;
+
+}
